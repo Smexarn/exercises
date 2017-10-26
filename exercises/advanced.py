@@ -5,7 +5,17 @@ def factorial(x):
 
     Returnera en lista med alla faktorer för talet `x`.
     '''
-    pass
+    if x == 1:
+        return [1]
+    d=2
+    result = []
+    while x > 1:
+        if x % d == 0:
+            x = x/d
+            result.append(d)
+        else:
+            d += 1
+    return result
 
 
 def yahtzee_score(dice, round):

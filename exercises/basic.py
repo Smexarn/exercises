@@ -6,13 +6,18 @@ def sum_of_digits(x):
 
     Exempel: 389 består av 3, 8 och 9 och resultatet blir 3 + 8 + 9 = 20
     '''
-    pass
+    s = 0
+    while x:
+        s += x % 10
+        x //= 10
+    return s
 
 
 def binary_string_to_int(s):
     '''Översätt en sträng med ett binärt tal till ett heltal.
     '''
-    pass
+    x = int(s, 2)
+    return x
 
 
 def count_numbers_and_letters(s):
@@ -21,8 +26,10 @@ def count_numbers_and_letters(s):
     Resultatet returneras som en dictionary med nycklarna 'letters' och
     'numbers'.
     '''
-    pass
-
+    dict = {'letters': 0, 'numbers': 0}
+    dict['letters'] = sum(c.isalpha() for c in s)
+    dict['numbers'] = sum(c.isdigit() for c in s)
+    return dict
 
 def sum_of_cubes(x):
     '''Summera all kuber (i^3) av heltalen från 1 till och med `x`.
@@ -30,4 +37,5 @@ def sum_of_cubes(x):
     Exempel:
     x = 4: 1^3 + 2^3 + 3^3 + 3^4 = 100
     '''
-    pass
+
+    return sum(i**3 for i in range(1, x+1))
